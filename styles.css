@@ -1,10 +1,16 @@
+:root {
+  --primary-color: #2faaff;
+  --text-glow: 0 0 8px var(--primary-color);
+  --background: black;
+}
+
 body, html {
   margin: 0;
   height: 100%;
   overflow: hidden;
-  background: black;
-  color: #0F0;
-  font-family: monospace;
+  background: var(--background);
+  color: var(--primary-color);
+  font-family: 'JetBrains Mono', monospace;
 }
 
 canvas {
@@ -18,29 +24,37 @@ canvas {
   position: relative;
   z-index: 1;
   text-align: center;
-  padding-top: 20%;
+  padding-top: 10%;
 }
+
+h1, h2, p, button {
+  color: var(--primary-color);
+}
+
 
 h1 {
   font-size: 4rem;
-  color: #00ff00;
-  text-shadow: 0 0 20px #00ff00;
+  font-weight: 100;
+  color: var(--primary-color);
+  margin-bottom: 1rem;
+  text-shadow:
+    0 0 3px var(--primary-color),
+    0 0 8px rgba(0, 255, 255, 0.5); /* subtle color halo */
 }
 
 p, h2 {
-  color: #0f0;
-  text-shadow: 0 0 5px #0f0;
-  line-height: 1.6;
-  font-size: 3rem;
+  line-height: .5;
+  font-size: 2rem;
+  font-family: 'JetBrains Mono', monospace;
+  margin-top:0rem;
 }
+
 
 button {
   background: none;
-  border: 1px solid #0f0;
-  color: #0f0;
+  border: 1px solid var(--primary-color);
   padding: 0.5rem 1rem;
   font-size: 1rem;
   margin-top: 1rem;
   cursor: pointer;
-  text-shadow: 0 0 3px #0f0;
 }

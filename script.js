@@ -1,11 +1,13 @@
 const canvas = document.getElementById('matrixCanvas');
 const ctx = canvas.getContext('2d');
+const rootStyles = getComputedStyle(document.documentElement);
+const primaryColor = rootStyles.getPropertyValue('--primary-color').trim();
 
 canvas.height = window.innerHeight;
 canvas.width = window.innerWidth;
 
-const letters = "アァイィウエカキクケコサシスセソタチツテトナニヌネノハヒフヘホ";
-const fontSize = 10;
+const letters = "日çアァイィウエカキクケコサシスセソタチツテトナニヌネノハヒフヘホ.=*+-¦|_012345789Z";
+const fontSize = 8;
 const columns = canvas.width / fontSize;
 
 const drops = Array.from({ length: columns }, () => 1);
@@ -14,7 +16,7 @@ function draw() {
   ctx.fillStyle = "rgba(0, 0, 0, 0.05)";
   ctx.fillRect(0, 0, canvas.width, canvas.height);
 
-  ctx.fillStyle = "#0F0";
+  ctx.fillStyle = primaryColor;
   ctx.font = `${fontSize}px monospace`;
 
   drops.forEach((y, i) => {
@@ -28,4 +30,4 @@ function draw() {
   });
 }
 
-setInterval(draw, 30);
+setInterval(draw, 35);
