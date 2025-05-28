@@ -6,7 +6,7 @@ const primaryColor = rootStyles.getPropertyValue('--primary-color').trim();
 canvas.height = window.innerHeight;
 canvas.width = window.innerWidth;
 
-const letters = "日çアァイィウエカキクケコサシスセソタチツテトナニヌネノハヒフヘホ.=*+-¦|_012345789Z";
+const letters = "[]{}()日çアァイィウエカキクケコサシスセソタチツテトナニヌネノハヒフヘホ.=*+-¦|_012345789Z";
 const fontSize = 8;
 const columns = canvas.width / fontSize;
 

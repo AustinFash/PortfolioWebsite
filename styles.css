@@ -4,13 +4,21 @@
   --background: black;
 }
 
+
+.source-code-pro {
+  font-family: "Source Code Pro", monospace;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+}
+
 body, html {
   margin: 0;
   height: 100%;
   overflow: hidden;
   background: var(--background);
   color: var(--primary-color);
-  font-family: 'JetBrains Mono', monospace;
+  font-family: "Source Code Pro", monospace;
 }
 
 canvas {
@@ -29,23 +37,25 @@ canvas {
 
 h1, h2, p, button {
   color: var(--primary-color);
+  font-family: "Source Code Pro", monospace;
+  font-weight: 200;
 }
 
 
 h1 {
-  font-size: 4rem;
-  font-weight: 100;
+  font-size: 5rem;
+  font-weight: 200;
   color: var(--primary-color);
   margin-bottom: 1rem;
   text-shadow:
-    0 0 3px var(--primary-color),
-    0 0 8px rgba(0, 255, 255, 0.5); /* subtle color halo */
+    0 0 2px var(--primary-color),
+    0 0 8px var(--primary-color),
+    0 0 25px rgba(0, 255, 255, 0.5); /* subtle color halo */
 }
 
 p, h2 {
   line-height: .5;
-  font-size: 2rem;
-  font-family: 'JetBrains Mono', monospace;
+  font-size: 2.5rem;
   margin-top:0rem;
 }
 
@@ -58,3 +68,23 @@ button {
   margin-top: 1rem;
   cursor: pointer;
 }
+
+.social-links {
+  margin-top: 1rem;
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+}
+
+.social-links img {
+  width: 32px;
+  height: 32px;
+  transition: transform 0.2s ease, filter 0.3s ease;
+  filter: drop-shadow(0 0 2px var(--primary-color));
+}
+
+.social-links img:hover {
+  transform: scale(1.1);
+  filter: drop-shadow(0 0 5px var(--primary-color));
+}
+
