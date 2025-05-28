@@ -4,7 +4,6 @@
   --background: black;
 }
 
-
 .source-code-pro {
   font-family: "Source Code Pro", monospace;
   font-optical-sizing: auto;
@@ -19,6 +18,7 @@ body, html {
   background: var(--background);
   color: var(--primary-color);
   font-family: "Source Code Pro", monospace;
+   overflow-y: auto; /* ensures vertical scroll */
 }
 
 canvas {
@@ -35,13 +35,14 @@ canvas {
   padding-top: 10%;
 }
 
-h1, h2, p, button {
+/*Elements colors and font*/
+h1, h2, h3, p {
   color: var(--primary-color);
   font-family: "Source Code Pro", monospace;
   font-weight: 200;
 }
 
-
+/*Title and Subtitle*/
 h1 {
   font-size: 5rem;
   font-weight: 200;
@@ -53,22 +54,15 @@ h1 {
     0 0 25px rgba(0, 255, 255, 0.5); /* subtle color halo */
 }
 
-p, h2 {
+h2 {
   line-height: .5;
   font-size: 2.5rem;
   margin-top:0rem;
+  display: flex;
+  justify-content: center;
 }
 
-
-button {
-  background: none;
-  border: 1px solid var(--primary-color);
-  padding: 0.5rem 1rem;
-  font-size: 1rem;
-  margin-top: 1rem;
-  cursor: pointer;
-}
-
+/* Social Links*/
 .social-links {
   margin-top: 1rem;
   display: flex;
@@ -88,3 +82,32 @@ button {
   filter: drop-shadow(0 0 5px var(--primary-color));
 }
 
+
+/*Sections*/
+.about {
+  display: flex;
+  flex-direction: column;
+  padding: 5rem 10rem;
+  position: relative;
+  z-index: 1;
+  gap: 1rem;
+}
+
+.about h3 {
+  font-size: 2.5rem;
+  font-weight: 300;
+  line-height: 1;
+  color: var(--primary-color);
+  text-shadow: 0 0 1px var(--primary-color), 0 0 3px var(--primary-color);
+  text-align: start;
+  margin: 0;
+}
+
+.about p {
+  font-size: 1rem;
+  line-height: 1.6;
+  color: var(--primary-color);
+  text-align: center;
+  margin: 0 auto;
+  text-align: start;
+}
