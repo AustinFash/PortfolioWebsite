@@ -1,0 +1,46 @@
+body, html {
+  margin: 0;
+  height: 100%;
+  overflow: hidden;
+  background: black;
+  color: #0F0;
+  font-family: monospace;
+}
+
+canvas {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 0;
+}
+
+.content {
+  position: relative;
+  z-index: 1;
+  text-align: center;
+  padding-top: 20%;
+}
+
+h1 {
+  font-size: 4rem;
+  color: #00ff00;
+  text-shadow: 0 0 20px #00ff00;
+}
+
+p, h2 {
+  color: #0f0;
+  text-shadow: 0 0 5px #0f0;
+  line-height: 1.6;
+  font-size: 3rem;
+}
+
+button {
+  background: none;
+  border: 1px solid #0f0;
+  color: #0f0;
+  padding: 0.5rem 1rem;
+  font-size: 1rem;
+  margin-top: 1rem;
+  cursor: pointer;
+  text-shadow: 0 0 3px #0f0;
+}
