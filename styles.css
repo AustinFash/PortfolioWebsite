@@ -4,28 +4,59 @@
   --background: black;
 }
 
-.source-code-pro {
-  font-family: "Source Code Pro", monospace;
-  font-optical-sizing: auto;
-  font-weight: 400;
-  font-style: normal;
-}
-
 body, html {
   margin: 0;
   height: 100%;
-  overflow: hidden;
+  overflow: auto;
   background: var(--background);
   color: var(--primary-color);
   font-family: "Source Code Pro", monospace;
-   overflow-y: auto; /* ensures vertical scroll */
 }
 
+/* Canvas Background */
 canvas {
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
   z-index: 0;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+}
+
+/*Elements colors and font*/
+h1, h2, h3, p {
+  color: var(--primary-color);
+  font-family: "Source Code Pro", monospace;
+  font-weight: 200;
+  margin: 0;
+}
+
+/*Title and Subtitle*/
+h1 {
+  font-size: clamp(2.5rem, 6vw, 5rem);
+  margin-bottom: 1rem;
+  text-shadow:
+    0 0 2px var(--primary-color),
+    0 0 8px var(--primary-color),
+    0 0 25px rgba(0, 255, 255, 0.5);
+}
+
+h2 {
+  font-size: clamp(1.2rem, 4vw, 2.5rem);
+  line-height: 1;
+  display: flex;
+  justify-content: center;
+}
+
+h3 {
+  font-size: clamp(1.5rem, 4vw, 2.5rem);
+  text-shadow: 0 0 1px var(--primary-color), 0 0 3px var(--primary-color);
+}
+
+p {
+  font-size: clamp(0.95rem, 3vw, 1.1rem);
+  line-height: 1.6;
 }
 
 .content {
@@ -35,34 +66,7 @@ canvas {
   padding-top: 10%;
 }
 
-/*Elements colors and font*/
-h1, h2, h3, p {
-  color: var(--primary-color);
-  font-family: "Source Code Pro", monospace;
-  font-weight: 200;
-}
-
-/*Title and Subtitle*/
-h1 {
-  font-size: 5rem;
-  font-weight: 200;
-  color: var(--primary-color);
-  margin-bottom: 1rem;
-  text-shadow:
-    0 0 2px var(--primary-color),
-    0 0 8px var(--primary-color),
-    0 0 25px rgba(0, 255, 255, 0.5); /* subtle color halo */
-}
-
-h2 {
-  line-height: .5;
-  font-size: 2.5rem;
-  margin-top:0rem;
-  display: flex;
-  justify-content: center;
-}
-
-/* Social Links*/
+/* Social Links */
 .social-links {
   margin-top: 1rem;
   display: flex;
@@ -82,53 +86,22 @@ h2 {
   filter: drop-shadow(0 0 5px var(--primary-color));
 }
 
-
 /*Sections*/
-.about {
-  display: flex;
-  flex-direction: column;
-  padding: 5rem 10rem 0rem 10rem;
+.about, .skills, .projects {
+  padding: 5rem clamp(1rem, 5vw, 10rem);
   position: relative;
   z-index: 1;
-  gap: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
 }
 
-.about h3 {
-  font-size: 2.5rem;
-  font-weight: 300;
-  line-height: 1;
-  color: var(--primary-color);
-  text-shadow: 0 0 1px var(--primary-color), 0 0 3px var(--primary-color);
-  text-align: start;
-  margin: 0;
-}
-
+/*About Section*/
 .about p {
-  font-size: 1rem;
-  line-height: 1.6;
-  color: var(--primary-color);
-  text-align: center;
-  margin: 0 auto;
   text-align: start;
 }
 
-.skills {
-  display: flex;
-  flex-direction: column;
-  padding: 3rem 10rem 3rem 10rem;
-  position: relative;
-  z-index: 1;
-  gap: 1rem;
-}
-
-.skills h3 {
-  font-size: 2.5rem;
-  font-weight: 300;
-  color: var(--primary-color);
-  text-shadow: 0 0 1px var(--primary-color), 0 0 3px var(--primary-color);
-  margin-bottom: 2rem;
-}
-
+/*Skills Section*/
 .skills-grid {
   display: flex;
   flex-wrap: wrap;
@@ -140,8 +113,6 @@ h2 {
   display: flex;
   flex-direction: column;
   align-items: center;
-  font-size: 2rem;
-  color: var(--primary-color);
   text-shadow: 0 0 1px var(--primary-color);
 }
 
@@ -152,23 +123,7 @@ h2 {
   filter: drop-shadow(0 0 2px var(--primary-color));
 }
 
-.projects {
-  display: flex;
-  flex-direction: column;
-  padding: 0rem 10rem 5rem 10rem;
-  position: relative;
-  z-index: 1;
-  gap: 1rem;
-}
-
-.projects h3 {
-  font-size: 2.5rem;
-  font-weight: 300;
-  color: var(--primary-color);
-  text-shadow: 0 0 1px var(--primary-color), 0 0 3px var(--primary-color);
-  margin-bottom: 2rem;
-}
-
+/*Project Section*/
 .projects-grid {
   display: flex;
   flex-wrap: wrap;
@@ -197,7 +152,45 @@ h2 {
   filter: drop-shadow(0 0 3px var(--primary-color));
 }
 
-.project-card h4, .project-card p {
-  color: var(--primary-color);
-  text-shadow: 0 0 1px var(--primary-color);
+.project-card h4 {
+  margin: 0.5rem 0 0.3rem;
+  font-size: 1.2rem;
+}
+
+/* Responsive tweaks */
+@media (max-width: 500px) {
+  .content {
+    padding-top: 6rem;
+  }
+
+  .social-links img {
+    width: 24px;
+    height: 24px;
+  }
+
+  .skill-item img {
+    width: 48px;
+    height: 48px;
+  }
+
+  .projects-grid,
+  .skills-grid {
+    gap: 1rem;
+    flex-direction: row;
+    align-items: center;
+  }
+
+  .project-card {
+    width: 90%;
+    padding: 0.75rem;
+  }
+
+  .about p {
+    text-align: center;
+  }
+
+  p {
+    font-size: .75rem;
+    text-align: center;
+  }
 }
